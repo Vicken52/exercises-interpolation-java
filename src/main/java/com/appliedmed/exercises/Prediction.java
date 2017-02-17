@@ -48,6 +48,34 @@ public class Prediction {
          * 40% of the List's points were deleted (set to null). Interpolate 
          * those points. You may either do this in-place or calculate a new List.
          */
+        for (int i = 1; i < points.size() - 1; i++) {
+            if(points.get(i) == null && points.get(i-1) != null)
+            {
+                Point tempN = points.get(i-1);
+                int count = 2;
+                Point temp = null;
+
+                while(temp == null && i+count < 199)
+                {
+                    temp = points.get(i+count);
+                    count++;
+                }
+
+                if(temp != null)
+                {
+                    double dx = tempN.x - temp.x;
+                    double dy = tempN.y - temp.y;
+
+
+                    for(int j = 1; j < count; j++)
+                    {
+                        points.set(i+j-1, new Point(tempN.x - (((double) j * dx) / (double) count),
+                                tempN.y - (((double) j * dy / (double) count))));
+                    }
+                }
+            }
+        }
+
         return points;
     }
 
