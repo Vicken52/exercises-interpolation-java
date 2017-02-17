@@ -66,6 +66,10 @@ public class Prediction {
                     double dx = tempN.x - temp.x;
                     double dy = tempN.y - temp.y;
 
+//                // Testing Changes
+//                System.out.println("Dx = " + dx);
+//                System.out.println("Dy = " + dy);
+//                System.out.println("count = " + count);
 
                     for(int j = 1; j < count; j++)
                     {
@@ -103,6 +107,15 @@ public class Prediction {
 
         // create the interpolated list 
         final List<Point> interpolated = interpolate(actual);
+
+//        // Testing changes
+//        for(int i = 0; i < interpolated.size(); i++)
+//        {
+//            if(interpolated.get(i) != null)
+//            {
+//                System.out.println(interpolated.get(i).x + " " + interpolated.get(i).y);
+//            }
+//        }
 
         final JFrame window = new JFrame("Interpolation");
 
